@@ -1,6 +1,6 @@
-plugins {
-    id("com.android.application")
-}
+    plugins {
+        id("com.android.application") version "8.12.1" // Or your desired AGP version
+    }
 
 android {
     namespace = "com.example.buscarlibro"
