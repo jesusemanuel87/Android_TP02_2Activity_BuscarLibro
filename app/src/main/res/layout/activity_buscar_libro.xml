@@ -40,7 +40,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         app:startIconDrawable="@drawable/ic_search"
+        app:startIconTint="#757575"
         app:hintTextColor="#757575"
+        app:boxStrokeColor="#4CAF50"
+        app:boxStrokeWidth="2dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -50,7 +53,13 @@
             android:hint="Escribe el nombre del libro..."
             android:inputType="text"
             android:imeOptions="actionSearch"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="#212121"
+            android:textColorHint="#757575"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
