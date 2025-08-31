@@ -8,15 +8,14 @@ Una aplicación Android para buscar libros desarrollada en Java con arquitectura
 - **Campo de búsqueda**: EditText con icono de lupa para escribir el nombre del libro
 - **Botón de búsqueda**: Busca el libro en la lista predefinida
 - **Vista de detalles**: Segunda actividad que muestra imagen, nombre, autor, año de edición y reseña
-- **Navegación**: Botón para volver a la actividad principal
 - **Toast de error**: Muestra "Libro no encontrado" cuando no se encuentra el libro
 
 ## Arquitectura MVVM
 
 - **Model**: `Libro.java` - Clase de datos con atributos del libro
 - **View**: Activities (`BuscarLibroActivity`, `DetalleLibroActivity`) y layouts XML
-- **ViewModel**: `BookViewModel.java` - Lógica de negocio y manejo de estados
-- **Repository**: `BookRepository.java` - Fuente de datos con lista hardcodeada de libros
+- **ViewModel**: `LibroViewModel.java` - Lógica de negocio y manejo de estados
+- **Repository**: `LibroRepository.java` - Fuente de datos con lista hardcodeada de libros
 
 ## Libros Incluidos
 
@@ -42,8 +41,8 @@ app/
 ├── src/main/
 │   ├── java/com/example/buscarlibro/
 │   │   ├── model/Libro.java
-│   │   ├── repository/BookRepository.java
-│   │   ├── viewmodel/BookViewModel.java
+│   │   ├── repository/LibroRepository.java
+│   │   ├── viewmodel/LibroViewModel.java
 │   │   ├── BuscarLibroActivity.java
 │   │   └── DetalleLibroActivity.java
 │   ├── res/
@@ -67,4 +66,3 @@ app/
 3. Presionar "Buscar" o la tecla de búsqueda
 4. Si se encuentra el libro, se abre la vista de detalles
 5. Si no se encuentra, aparece un toast "Libro no encontrado"
-6. En la vista de detalles, usar "Volver" para regresar a la búsqueda
