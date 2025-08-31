@@ -8,15 +8,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.buscarlibro.model.Libro;
-import com.example.buscarlibro.viewmodel.BookViewModel;
+
+import com.example.buscarlibro.viewmodel.LibroViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class BuscarLibroActivity extends AppCompatActivity {
     private TextInputEditText etSearch;
     private MaterialButton btnBuscar;
-    private BookViewModel bookViewModel;
+    private LibroViewModel libroViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class BuscarLibroActivity extends AppCompatActivity {
     }
 
     private void initializeViewModel() {
-        bookViewModel = new ViewModelProvider(this).get(BookViewModel.class);
+        libroViewModel = new ViewModelProvider(this).get(LibroViewModel.class);
     }
 
     private void setupListeners() {
@@ -54,7 +54,7 @@ public class BuscarLibroActivity extends AppCompatActivity {
     }
 
     private void observeViewModel() {
-        bookViewModel.getLibroEncontrado().observe(this, libro -> {
+        libroViewModel.getLibroEncontrado().observe(this, libro -> {
             if (libro != null) {
                 // Navegar a la segunda activity con los detalles del libro
                 Intent intent = new Intent(BuscarLibroActivity.this, DetalleLibroActivity.class);
@@ -67,7 +67,7 @@ public class BuscarLibroActivity extends AppCompatActivity {
             }
         });
 
-        bookViewModel.getLibroNoEncontrado().observe(this, noEncontrado -> {
+        libroViewModel.getLibroNoEncontrado().observe(this, noEncontrado -> {
             if (noEncontrado != null && noEncontrado) {
                 Toast.makeText(this, "Libro no encontrado", Toast.LENGTH_SHORT).show();
             }
@@ -77,7 +77,7 @@ public class BuscarLibroActivity extends AppCompatActivity {
     private void buscarLibro() {
         String nombreLibro = etSearch.getText().toString().trim();
         if (!nombreLibro.isEmpty()) {
-            bookViewModel.buscarLibro(nombreLibro);
+            libroViewModel.buscarLibro(nombreLibro);
         } else {
             Toast.makeText(this, "Por favor ingrese el nombre de un libro", Toast.LENGTH_SHORT).show();
         }

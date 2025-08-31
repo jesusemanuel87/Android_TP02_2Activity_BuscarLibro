@@ -5,17 +5,17 @@ import com.example.buscarlibro.model.Libro;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookRepository {
-    private static BookRepository instance;
+public class LibroRepository {
+    private static LibroRepository instance;
     private List<Libro> libros;
 
-    private BookRepository() {
+    private LibroRepository() {
         initializeBooks();
     }
 
-    public static BookRepository getInstance() {
+    public static LibroRepository getInstance() {
         if (instance == null) {
-            instance = new BookRepository();
+            instance = new LibroRepository();
         }
         return instance;
     }
@@ -36,7 +36,7 @@ public class BookRepository {
             "Miguel de Cervantes",
             1605,
             "La historia del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza en sus aventuras por los campos de La Mancha.",
-            R.drawable.don_quijote
+            R.drawable.don_quijote_de_la_mancha
         ));
 
         libros.add(new Libro(
@@ -68,7 +68,7 @@ public class BookRepository {
             "J.K. Rowling",
             1997,
             "La primera aventura del joven mago Harry Potter en el mundo mágico de Hogwarts.",
-            R.drawable.harry_potter
+            R.drawable.harry_potter_filosofal
         ));
     }
 

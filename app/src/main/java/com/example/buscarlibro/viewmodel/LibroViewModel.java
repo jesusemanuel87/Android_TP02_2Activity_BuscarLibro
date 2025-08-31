@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.example.buscarlibro.model.Libro;
-import com.example.buscarlibro.repository.BookRepository;
+import com.example.buscarlibro.repository.LibroRepository;
 
-public class BookViewModel extends ViewModel {
-    private BookRepository bookRepository;
+public class LibroViewModel extends ViewModel {
+    private LibroRepository libroRepository;
     private MutableLiveData<Libro> libroEncontrado;
     private MutableLiveData<Boolean> libroNoEncontrado;
 
-    public BookViewModel() {
-        bookRepository = BookRepository.getInstance();
+    public LibroViewModel() {
+        libroRepository = LibroRepository.getInstance();
         libroEncontrado = new MutableLiveData<>();
         libroNoEncontrado = new MutableLiveData<>();
     }
@@ -31,7 +31,7 @@ public class BookViewModel extends ViewModel {
             return;
         }
 
-        Libro libro = bookRepository.buscarLibroPorNombre(nombre.trim());
+        Libro libro = libroRepository.buscarLibroPorNombre(nombre.trim());
         if (libro != null) {
             libroEncontrado.setValue(libro);
             libroNoEncontrado.setValue(false);

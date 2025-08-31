@@ -12,7 +12,6 @@ public class DetalleLibroActivity extends AppCompatActivity {
     private TextView tvLibroAutor;
     private TextView tvLibroAno;
     private TextView tvLibroResena;
-    private MaterialButton btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,6 @@ public class DetalleLibroActivity extends AppCompatActivity {
 
         initializeViews();
         loadBookData();
-        setupListeners();
     }
 
     private void initializeViews() {
@@ -30,7 +28,7 @@ public class DetalleLibroActivity extends AppCompatActivity {
         tvLibroAutor = findViewById(R.id.tvLibroAutor);
         tvLibroAno = findViewById(R.id.tvLibroAno);
         tvLibroResena = findViewById(R.id.tvLibroResena);
-        btnVolver = findViewById(R.id.btnVolver);
+
     }
 
     private void loadBookData() {
@@ -50,12 +48,5 @@ public class DetalleLibroActivity extends AppCompatActivity {
         if (imagenResourceId != 0) {
             ivLibroImagen.setImageResource(imagenResourceId);
         }
-    }
-
-    private void setupListeners() {
-        btnVolver.setOnClickListener(v -> {
-            // Volver a la actividad anterior
-            finish();
-        });
     }
 }
